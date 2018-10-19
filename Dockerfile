@@ -6,6 +6,11 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update; \
 	DEBIAN_FRONTEND=noninteractive apt-get install -y dumb-init git curl; \ 
 	DEBIAN_FRONTEND=noninteractive apt-get build-dep -y debian-installer
 
+ADD build-deb-installer.sh /build-deb-installer.sh
+
+RUN chmod +x /build-deb-installer.sh
+
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
+
 
 CMD ["/bin/bash"]
