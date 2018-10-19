@@ -18,3 +18,10 @@ version=$(ls /srv/tftp/debian-installer/build/tmp/netboot/tree/lib/modules/)
 
 apt-get download linux-image-${version}
 dpkg-deb -x linux-image-${version}*.deb /srv/tftp/linux
+
+mkdir -p mod
+cd mod
+
+mkdir -p lib/modules/${version}/kernel/net/netfilter$                     
+mkdir -p lib/modules/${version}/kernel/net/ipv4/netfilter
+mkdir -p lib/modules/${version}/kernel/net/ipv6/netfilter
